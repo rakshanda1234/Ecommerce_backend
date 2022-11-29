@@ -102,24 +102,6 @@ document.addEventListener("click", (e) => {
     getCartDetails();
     document.querySelector("#cart").style = "display:block;";
   }
-
-  function getCartDetails() {
-    axios
-      .get("http://localhost:3000/cart")
-      .then((response) => {
-        console.log("product data");
-
-        if (response.status === 200) {
-          response.data.products.forEach((product) => {
-            const cartContainer = document.getElementById("cart");
-            cartContainer.innerHTML += `<li>${product.title} -${product.cartItem.quantity} - ${product.price}</li>`;
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
   // cancel the cart on click
   if (e.target.className == "cancel") {
     document.querySelector("#cart").style = "display:none;";
@@ -152,3 +134,37 @@ document.addEventListener("click", (e) => {
     e.target.parentNode.parentNode.remove();
   }
 });
+
+function getCartDetails() {
+  axios
+    .get("http://localhost:3000/cart")
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  // cart_items.innerHTML = "";
+  // productslist.forEach((product) => {
+  //   const id = `album-${product.id}`;
+  //   const name = document.querySelector(`#${id} h3`).innerText;
+  //   const img_src = document.querySelector(`#${id} img`).src;
+  //   const price = product.price;
+  //   document.querySelector(".cart-number").innerText =
+  //     parseInt(document.querySelector(".cart-number").innerText) + 1;
+  //   const cart_item = document.createElement("div");
+  //   cart_item.classList.add("cart-row");
+  //   cart_item.setAttribute("id", `in-cart-${id}`);
+  //   cart_item.innerHTML = `
+  //       <span class='cart-item cart-column'>
+  //       <img class='cart-img' src="${img_src}" alt="">
+  //           <span>${name}</span>
+  //       </span>
+  //       <span class='cart-price cart-column'>${price}</span>
+  //       <form onsubmit='deleteCartItem(event, ${product.id})' class='cart-quantity cart-column'>
+  //           <input type="text" value="1">
+  //           <button>REMOVE</button>
+  //       </form>`;
+  //   cart_items.appendChild(cart_item);
+  // });
+}
