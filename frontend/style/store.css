@@ -91,7 +91,7 @@ section h2 {
   padding: 20px;
   font-size: 30px;
 }
-#product-content {
+#products-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -117,8 +117,8 @@ section h2 {
 img {
   transform-origin: center center;
   object-fit: cover;
-  height: 100%;
-  width: 100%;
+  height: 25%;
+  width: 25%;
 }
 .shop-images:hover {
   transform: scale(1.5);

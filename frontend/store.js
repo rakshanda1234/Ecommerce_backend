@@ -1,25 +1,28 @@
 const cart_items = document.querySelector("#cart .cart-items");
 
-const parentContainer = document.getElementById("music-content");
+// const parentNode = document.getElementById("product-content");
+
+const parentContainer = document.getElementById("EcommerceContainer");
 
 window.addEventListener("load", () => {
   console.log("loaded");
 
-  axios.get("http://localhost:3000/products").then((products) => {
-    console.log(products);
-    products.data.forEach((product) => {
-      const productHTML = `<div id="album-${products.id}">
-      <h3>${products.title}</h3>
-      <div class="image-container">
-      <img class="prod-images" src=${product.imageUrl}alt="">
-      </div>
-      <div class="prod-details">
-      <span>$<span>${product.price}</span></span>
-      <button class="shop-item-button" type='button'>ADD TO CART</button>
-      </div>
+  axios.get("http://localhost:3000/products").then((data) => {
+    console.log(data);
+    if (data.request.status === 200) {
+      const products = data.data.products;
+      const parentSection = document.getElementById("products");
+      products.forEach((product) => {
+        const productHTML = `
+      <div>
+      <h1>${product.title}</h1>
+      <img src=${product.imageUrl}></img>
+      <button>Add To Cart</button>
       </div>`;
-      parentNode.innerHTML += productHTML;
-    });
+
+        parentSection.innerHTML = parentSection.innerHTML + productHTML;
+      });
+    }
   });
 });
 

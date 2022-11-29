@@ -24,76 +24,50 @@
         </header>
         <section id="products" class="container">
             <h2 class="section-header">Products</h2>
+        </section>
+        <!-- cart item section  -> -->
 
-            <!-- cart item section  ->
+        <section id="cart" class="container">
+            <h2 class="section-header">CART</h2>
+            <button class="cancel">X</button>
+            <div class="cart-row cart-header">
+                <span class="cart-item cart-column">ITEM</span>
+                <span class="cart-price cart-column">PRICE</span>
+                <span class="cart-quantity cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items"></div>
 
-            <section id="cart" class="container">
-                <h2 class="section-header">CART</h2>
-                <button class="cancel">X</button>
-                <div class="cart-row cart-header">
-                    <span class="cart-item cart-column">ITEM</span>
-                    <span class="cart-price cart-column">PRICE</span>
-                    <span class="cart-quantity cart-column">QUANTITY</span>
-                </div>
-              <--  <div class="cart-items">
-                     <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="./img/Shirt.png" width="100" height="100">
-                        <span class="cart-item-title">T-Shirt</span>
-                    </div>
-                    <span class="cart-price cart-column">$19.99</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="1">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
+            <button class="purchase-btn" type="button">PURCHASE</button>
+        </section>
+        <button class="cart-btn-bottom"> <a href="#cart" class="cart-button">See the cart</a></button>
+        <!-- notification toggle -->
+        <div id="container">
 
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="./img/Album 3.png" width="100" height="100">
-                        <span class="cart-item-title">Album 3</span>
-                    </div>
-                    <span class="cart-price cart-column">$9.99</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="2">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>-->
-    </div>
-    <div class="cart-total">
-        <span class='total-title'><strong>Total</strong>
-            <!-- <span class="cart-total-price">$39.97</span> -->
-
-            $<span id="total-value">0</span>
-        </span>
-    </div>
-    <button class="purchase-btn" type="button">PURCHASE</button>
-    </section>
-    <button class="cart-btn-bottom"> <a href="#cart" class="cart-button">See the cart</a></button>
-    <!-- notification toggle -->
-    <div id="container">
-
-    </div>
-    <footer>
-
-        <!-- footer -->
-        <div class="footer-title">The Generics</div>
-        <div class="footer-icons">
-            <ul>
-                <li>
-                    <a href="https://www.youtube.com" target="_blank">
-                        <img src="./img/YouTubeLogo.png" alt>
-                    </a>
-                    <a href="https://www.facebook.com" target="_blank">
-                        <img src="./img/Facebook Logo.png" alt>
-                    </a>
-                    <a href="https://www.spotify.com" target="_blank">
-                        <img src="./img/Spotify Logo.png" alt>
-                    </a>
-                </li>
-            </ul>
         </div>
-    </footer>
+        <footer>
+
+            <!-- footer -->
+            <div class="footer-title">The Generics</div>
+            <div class="footer-icons">
+                <ul>
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="./img/YouTubeLogo.png" alt>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="./img/Facebook Logo.png" alt>
+                        </a>
+                        <a href="https://www.spotify.com" target="_blank">
+                            <img src="./img/Spotify Logo.png" alt>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+            integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>
