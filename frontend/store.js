@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
       <div>
       <h1>${product.title}</h1>
       <img src=${product.imageUrl}></img>
-      <button>Add To Cart</button>
+      <button onClick="addToCart(${product.id})">Add To Cart</button>
       </div>`;
 
         parentSection.innerHTML = parentSection.innerHTML + productHTML;
@@ -25,6 +25,31 @@ window.addEventListener("load", () => {
     }
   });
 });
+
+function addToCart(productId) {
+  axios
+    .post("http://localhost:3000/cart", { productId: productId })
+    .then((response) => {
+      if ((response.status = "200")) {
+        notifyUsers(response.data.message);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      notifyUsers(err.data.message);
+    });
+}
+
+function notifyUsers(message) {
+  const container = document.getElementById("container");
+  const notification = document.createElement("div");
+  notification.classList.add("notification");
+  notification.innerHTML = `<h4>${message}</h4>`;
+  container.appendChild(notification);
+  setTimeout(() => {
+    notification.remove();
+  }, 2500);
+}
 
 // click on add to cart
 document.addEventListener("click", (e) => {
@@ -39,6 +64,7 @@ document.addEventListener("click", (e) => {
       alert("This item is already added to the cart");
       return;
     }
+
     document.querySelector(".cart-number").innerText =
       parseInt(document.querySelector(".cart-number").innerText) + 1;
     const cart_item = document.createElement("div");
@@ -60,14 +86,14 @@ document.addEventListener("click", (e) => {
     cart_items.appendChild(cart_item);
 
     //Notification
-    const container = document.getElementById("container");
-    const notification = document.createElement("div");
-    notification.classList.add("notification");
-    notification.innerHTML = `<h4>Your Product : <span>${name}</span> is added to the cart<h4>`;
-    container.appendChild(notification);
-    setTimeout(() => {
-      notification.remove();
-    }, 2500);
+    //   const container = document.getElementById("container");
+    //   const notification = document.createElement("div");
+    //   notification.classList.add("notification");
+    //   notification.innerHTML = `<h4>Your Product : <span>${name}</span> is added to the cart<h4>`;
+    //   container.appendChild(notification);
+    //   setTimeout(() => {
+    //     notification.remove();
+    //   }, 2500);
   }
   //display the cart on click
   if (

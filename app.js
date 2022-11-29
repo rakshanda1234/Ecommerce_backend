@@ -23,7 +23,7 @@ const shopRoutes = require("./routes/shop");
 
 //urlencoded + json encoded
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
