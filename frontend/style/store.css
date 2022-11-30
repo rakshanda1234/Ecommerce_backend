@@ -6,8 +6,10 @@ header li {
 }
 * {
   box-sizing: border-box;
+  margin: 0;
   padding: 0;
 }
+
 li {
   display: list-item;
   text-align: -webkit-match-parent;
@@ -103,22 +105,32 @@ section h2 {
   display: block;
   width: 100%;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   color: #333;
   margin-bottom: 15px;
 }
 
 .image-container {
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
-  height: 250px;
-  width: 250px;
+  height: 25%;
+  width: 25%;
   overflow: hidden;
 }
 img {
   transform-origin: center center;
   object-fit: cover;
   height: 25%;
-  /* width: 25%; */
+  width: 25%;
+}
+.onclick {
+  width: 20%;
+  background: cadetblue;
+
+  color: white;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: 700;
 }
 .shop-images:hover {
   transform: scale(1.5);
@@ -183,6 +195,15 @@ img {
   width: 250px;
   overflow: hidden;
 }
+.product-images {
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+}
+.card__image img {
+  width: 25%;
+}
 img {
   transform-origin: center center;
   object-fit: cover;
@@ -221,6 +242,11 @@ img {
   width: 45%;
 }
 .cart-img {
+  width: 80px;
+  border-radius: 8%;
+  margin-right: 20px;
+}
+.cart-item-image {
   width: 80px;
   border-radius: 8%;
   margin-right: 20px;
