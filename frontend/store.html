@@ -8,7 +8,6 @@
     <title>Ecommerce project</title>
 
     <link rel="stylesheet" href="./style/store.css">
-    <script src="store.js" defer></script>
 </head>
 
 <body>
@@ -18,7 +17,9 @@
                 <li><a href="./index.html">HOME</a></li>
                 <li><a href="#">STORE</a></li>
                 <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./order.html">ORDERS</a></li>
                 <a href="#cart" class="cart-holder">cart<span class='cart-number'>0</span></a>
+                <!-- <button class="cartbutton" id="cartbtn">cart</button> -->
             </ul>
             <h1>The Generics</h1>
         </header>
@@ -30,6 +31,8 @@
 
         <!--cart item section-->
 
+
+
         <section id="cart" class="container">
             <h2 class="section-header">CART</h2>
             <button class="cancel">X</button>
@@ -39,14 +42,23 @@
                 <span class="cart-quantity cart-column">QUANTITY</span>
             </div>
             <div class="cart-items"></div>
-
+            <div class="cart-total">
+                <span>
+                    <span class='total-title'> <strong>Total</strong>
+                    </span>
+                    $<span id='total-value'>0</span>
+                </span>
+            </div>
             <button class="purchase-btn" type="button">PURCHASE</button>
+            <section id="cartPagination" class="pagination"></section>
         </section>
-        <button class="cart-btn-bottom"> <a href="#cart" class="cart-button">See the cart</a></button>
+        <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button>
         <!-- notification toggle -->
-        <div id="container">
+        <div id="container"></div>
 
-        </div>
+
+
+
         <footer>
 
             <!-- footer -->
@@ -67,6 +79,8 @@
                 </ul>
             </div>
         </footer>
+        <script src="store.js" defer></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
             integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -2,8 +2,9 @@
 
 header li {
   margin: 0 px 40 px;
-  width: 25%;
+  width: 15%;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,6 +15,7 @@ li {
   display: list-item;
   text-align: -webkit-match-parent;
 }
+
 header ul {
   display: flex;
   padding: 10px;
@@ -146,7 +148,17 @@ img {
   flex-grow: 1;
   color: #333;
 }
-#product-content .shop-item-button {
+/* #product-content .shop-item-button {
+  cursor: pointer;
+  padding: 8px;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4%;
+  background: cadetblue;
+} */
+.shop-item-button {
   cursor: pointer;
   padding: 8px;
   color: white;
@@ -156,7 +168,9 @@ img {
   border-radius: 4%;
   background: cadetblue;
 }
-#product-content .shop-item-button :hover,
+.shop-item-button:hover {
+  background: rgb(20, 102, 243);
+}
 #merch-content .shop-item-button:hover {
   background: rgb(20, 102, 243);
 }
@@ -288,6 +302,7 @@ img {
 .cart-quantity button:hover {
   background: rgb(218, 37, 37);
 }
+
 .cart-total {
   display: flex;
   flex-direction: row-reverse;
@@ -420,4 +435,17 @@ div {
 }
 .notification h4 span {
   color: red;
+}
+
+.pagination {
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#productscurrentPage,
+#cartcurrentPage {
+  padding: 10px;
+  background-color: cadetblue;
+  border: white;
 }
