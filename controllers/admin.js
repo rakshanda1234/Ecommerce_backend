@@ -13,7 +13,7 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  console.log("mcdonald", title, imageUrl, description, price);
+  // console.log("mcdonald", title, imageUrl, description, price);
   req.user
     .createProduct({
       title: title,
@@ -22,7 +22,6 @@ exports.postAddProduct = (req, res, next) => {
       description: description,
     })
     .then((result) => {
-      // console.log(result);
       console.log("Created Product");
       res.redirect("/admin/products");
     })

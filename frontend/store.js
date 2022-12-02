@@ -64,13 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       } else {
         alert("Thanks for the purchase");
-        // axios.post("http://localhost:3000/order-place").then((response) => {
-        notifyUser(response.data.message);
-        const cart_items = document.querySelector("#cart .cart-items");
-        cart_items.innerHTML = "";
-        document.querySelector(".cart-number").innerText = "0";
-        document.querySelector("#total-value").innerText = `0`;
-        // });
+        axios.post("http://localhost:3000/order-place").then((response) => {
+          notifyUser(response.data.message);
+          const cart_items = document.querySelector("#cart .cart-items");
+          cart_items.innerHTML = "";
+          document.querySelector(".cart-number").innerText = "0";
+          document.querySelector("#total-value").innerText = `0`;
+        });
       }
     }
   }); //ecommerce container end

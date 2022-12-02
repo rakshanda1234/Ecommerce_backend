@@ -200,12 +200,59 @@ exports.postCartDeleteProduct = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  res.render("shop/orders", {
-    path: "/orders",
-    pageTitle: "Your Orders",
-  });
+  // res.render("shop/orders", {
+  //   path: "/orders",
+  //   pageTitle: "Your Orders",
+  // });
+  req.user
+    .getOrders({ include: [`products`] })
+    .then((orders) => {
+      if (!orders) res.json({ success: false, message: "No order Found" });
+      else {
+        res.status(200).json({ success: true, orders: orders });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
+exports.postOrders = (req, res, next) => {
+  let total_amount = 0;
+  let orderId;
+  let fetchedOrder;
+  req.user
+    .createOrder()
+    .then((order) => {
+      fetchedOrder = order;
+      orderId = order.id;
+      return req.user
+        .getCart()
+        .then((cart) => {
+          return cart.getProducts();
+        })
+        .then((products) => {
+          products.forEach((prod) => {
+            order.addProduct(prod, {
+              through: { quantity: prod.cartItem.quantity },
+            });
+            total_amount += prod.cartItem.quantity * prod.price;
+            prod.cartItem.destroy();
+          });
+        });
+    })
+    .then(() => {
+      fetchedOrder.set({ amount: total_amount });
+      fetchedOrder.save();
+      res.status(200).json({
+        success: true,
+        message: `Order successfully placed. Your Order Id:${orderId}`,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 exports.getCheckout = (req, res, next) => {
   res.render("shop/checkout", {
     path: "/checkout",
