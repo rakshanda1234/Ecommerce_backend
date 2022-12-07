@@ -13,7 +13,7 @@ const User = require("./models/user");
 const Cart = require("./models/cart");
 const CartItem = require("./models/cart-item");
 const Order = require("./models/order");
-
+const OrderItem = require("./models/order-item");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -60,6 +60,10 @@ Product.belongsToMany(Cart, { through: CartItem });
 //one to many between user and order
 User.hasMany(Order);
 Order.belongsTo(User);
+
+//Many to many between user and order-product
+Order.belongsToMany(Product, { through: OrderItem });
+Product.belongsToMany(Order, { through: OrderItem });
 
 //creating one dummy user
 sequelize

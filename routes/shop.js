@@ -20,7 +20,7 @@ router.post("/cart-delete-item", shopController.postCartDeleteProduct);
 
 router.post("/order-place", shopController.postOrders);
 
-// router.get("/orders", shopController.getOrders);
+router.get("/orders", shopController.getOrders);
 
 router.get("/checkout", shopController.getCheckout);
 
