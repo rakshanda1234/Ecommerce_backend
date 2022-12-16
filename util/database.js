@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
 
-//get config vars
+//get configuration  vars
 dotenv.config();
 
 const sequelize = new Sequelize(
