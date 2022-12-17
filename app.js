@@ -50,6 +50,11 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
+app.use((req, res) => {
+  console.log("urlll", req.url);
+  res.sendFile(path.join(__dirname, "public/${req.url}"));
+});
+
 //added association between Product and User
 Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Product);
