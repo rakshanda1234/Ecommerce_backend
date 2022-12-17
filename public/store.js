@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const parentId = event.target.parentNode.parentNode.parentNode.id;
 
       axios
-        .post("http://localhost:3000/cart", {
+        .post("http://18.182.55.213:3000/cart", {
           productId: parentId.substring(1),
         })
         .then((response) => {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //removing from cart
     if (event.target.innerText == "REMOVE") {
       axios
-        .post("http://localhost:3000/cart-delete-item", {
+        .post("http://18.182.55.213:3000/cart-delete-item", {
           productId: event.target.parentNode.parentNode.id.substring(8),
         })
         .then((response) => {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       } else {
         alert("Thanks for the purchase");
-        axios.post("http://localhost:3000/order-place").then((response) => {
+        axios.post("http://18.182.55.213:3000/order-place").then((response) => {
           notifyUser(response.data.message);
           const cart_items = document.querySelector("#cart .cart-items");
           cart_items.innerHTML = "";
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const page = 1;
 function displayProducts(queryParams = "") {
   axios
-    .get(`http://localhost:3000/products/${queryParams}`)
+    .get(`http://18.182.55.213:3000/products/${queryParams}`)
     .then((result) => {
       const productsDisplayContainerDiv =
         document.getElementById("products-content");
@@ -111,7 +111,7 @@ function displayProducts(queryParams = "") {
 //display products in cart        -carts from backend
 function displayInCart(queryParams = "") {
   axios
-    .get(`http://localhost:3000/cart/${queryParams}`)
+    .get(`http://18.182.55.213:3000/cart/${queryParams}`)
     .then((response) => {
       const cart_items = document.querySelector("#cart .cart-items");
       cart_items.innerHTML = "";
