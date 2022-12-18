@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", renderOrderPage);
 function renderOrderPage() {
   const orderDiv = document.getElementById("orderDiv");
   orderDiv.innerHTML = "";
-  axios.get("http://localhost:3000/orders").then((response) => {
+  axios.get("http://18.182.55.213:3000/orders").then((response) => {
     response.data.orders.reverse().forEach((order) => {
       const orderBox = document.createElement("div");
       orderBox.style = "align-items:center";
